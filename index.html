@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feedback Form</title>
     <script type="module">
-      // Import the functions you need from the SDKs you need
+      // Import necessary Firebase functions
       import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
-      import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-firestore.js";
+      import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-firestore.js";
 
       // Your web app's Firebase configuration
       const firebaseConfig = {
@@ -33,7 +33,7 @@
         };
         
         try {
-          await setDoc(doc(db, "feedback", `${Date.now()}`), formData);
+          await addDoc(collection(db, "chat"), formData);
           alert('Feedback submitted successfully!');
           document.getElementById('feedback-form').reset(); // Reset form after submission
         } catch (error) {
