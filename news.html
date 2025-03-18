@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code to Link</title>
+    <script>
+        function checkCode() {
+            const codeInput = document.getElementById("codeInput").value;
+            const linkContainer = document.getElementById("linkContainer");
+            const validCode = "1234"; // Change this to your desired code
+            const linkURL = "https://example.com"; // Change this to your desired URL
+
+            if (codeInput === validCode) {
+                linkContainer.innerHTML = `<a href="${linkURL}" target="_blank">Click here to visit the page</a>`;
+            } else {
+                linkContainer.innerHTML = "Invalid code. Try again.";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>Enter Code to Access the Link</h2>
+    <input type="text" id="codeInput" placeholder="Enter code">
+    <button onclick="checkCode()">Submit</button>
+    <div id="linkContainer"></div>
+</body>
+</html>
